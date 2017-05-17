@@ -7,7 +7,7 @@ body{
 .time-zone{
     border : 1px solid gray;
     padding: 2em;
-    max-width: 300px;
+    max-width: 320px;
     background: #e1ded2;
     border-radius: 10%;
     padding: .2em;
@@ -57,10 +57,11 @@ h4{
 .time{
     border: 1px solid gray;
     padding: 2px 2px 2px 2px;
-    font-size: 1.7em;
+    font-size: 1.0em;
     text-align: center;
     background-color: white;
     border-radius: 5%;
-    max-width: 80%;
+    width: 80%;
+    
     margin: auto;
 }

@@ -3,20 +3,43 @@
     <head>
         <title>Time Zone Coverter</title>
         <meta content="width=device-width, initial-scale=1" name="viewport">
-    </head>
-    <body>
+        <script src="app.js"></script>
+        <script src="moment.js"></script>
+        <script src="moment-timezone-with-data-2012-2022.js"></script>
        
+    </head>
+    <body>    
         <link href="main.css" rel="stylesheet">
-        <div class = "time-zone" id = "">
+
+        <div class = "time-zone" id = "new-york">
             <div class="toggle">hide</div>
-            <h1 class="zone-name">EDT</h1>
-            <h3>Eastern Daylight Time  UTC -4</h3>
+            <h1 class="zone-name" id ="america-new-york-abbr" >placeholder</h1>
+            <h3>
+                <span id="america-new-york-zone">placeholder</span>
+                <span id="america-new-york-offset">placeholder</span></h3>
             
-        <div class="input-wrapper">      
-                <input  class="time" id="edt" type="text" name="time" value="00:00">
-        </div>   
-            
+            <div class="input-wrapper">      
+                    <input  class="time" id="ET" type="text" name="time" value="00:00">
+            </div>          
         </div>
+
+                <div class = "time-zone" id = "chicago">
+            <div class="toggle">hide</div>
+            <h1 class="zone-name" id ="america-chicago-abbr" >placeholder</h1>
+            <h3>
+                <span id="america-chicago-zone">placeholder</span>
+                <span id="america-chicago-offset">placeholder</span></h3>
+            
+            <div class="input-wrapper">      
+                    <input  class="time" id="CT" type="text" name="time" value="00:00">
+            </div>          
+        </div>
+
+
+
          <script src="app.js"></script>
+         <script src="moment.js"></script>
+        <script src="moment-timezone-with-data-2012-2022.js"></script>
+        
     </body>
 </html>
