@@ -11,7 +11,7 @@
     <body>    
         <link href="main.css" rel="stylesheet">
 
-        <div class = "time-zone" id = "new-york" onchange="myHandler();">
+        <div class = "time-zone" id = "newyork" >
             <div class="toggle">hide</div>
             <h1 class="zone-name" id ="america-new-york-abbr" >placeholder</h1>
             <h3>
@@ -19,11 +19,11 @@
                 <span id="america-new-york-offset">placeholder</span></h3>
             
             <div class="input-wrapper">      
-                    <input  class="time" id="ET" type="text" name="time" value="00:00">
+                    <input  class="time" id="ET" type="text" name="time" value="00:00" onchange="myHandler(this.id);">
             </div>          
         </div>
 
-                <div class = "time-zone" id = "chicago" onchange="myHandler();">
+                <div class = "time-zone" id = "chicago">
             <div class="toggle">hide</div>
             <h1 class="zone-name" id ="america-chicago-abbr" >placeholder</h1>
             <h3>
@@ -31,7 +31,7 @@
                 <span id="america-chicago-offset">placeholder</span></h3>
             
             <div class="input-wrapper">      
-                    <input  class="time" id="CT" type="text" name="time" value="00:00">
+                    <input  class="time" id="CT" type="text" name="time" value="00:00" onchange="myHandler(this.id);">
             </div>          
         </div>
 

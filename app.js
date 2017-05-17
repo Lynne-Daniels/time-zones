@@ -79,13 +79,25 @@ moment.fn.zoneName = function () {
 };
 
 //TESTS
-function myHandler(){// TEST VERSION changing ET works!!! CT changes.  Need to make universal
-    console.log('onchange fired', document.getElementById('ET').value);
-    mainClock.update(document.getElementById('ET').value);
+/*<input
+   type       = "text" 
+   onchange   = "myHandler();"
+   onkeypress = "this.onchange();"
+   onpaste    = "this.onchange();"
+   oninput    = "this.onchange();"
+/>*/
+function myHandler(zone){// TEST VERSION changing ET works!!! CT changes.  Need to make universal
+    
+    console.log('onchange fired', zone, document.getElementById('ET').value);
+    mainClock.update(document.getElementById(zone).value);
     renderChicagoClock(moment.tz(mainClock.time, "America/Chicago").format(),
-moment.tz(mainClock.time, "America/Chicago").format('z'),
-moment.tz(mainClock.time, "America/Chicago").format('zz'),
-moment.tz(mainClock.time, "America/Chicago").format('Z'));
+        moment.tz(mainClock.time, "America/Chicago").format('z'),
+        moment.tz(mainClock.time, "America/Chicago").format('zz'),
+        moment.tz(mainClock.time, "America/Chicago").format('Z'));
+    renderNYClock(moment.tz(mainClock.time, "America/New_York").format(),
+        moment.tz(mainClock.time, "America/New_York").format('z'),
+        moment.tz(mainClock.time, "America/New_York").format('zz'),
+        moment.tz(mainClock.time, "America/New_York").format('Z'));
 
 }
 var c = moment.tz(Date.now(), "America/New_York");
