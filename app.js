@@ -1,7 +1,7 @@
 var mainClock = {
     time: '',
-    update: function(time, utcOffset){//called on update to any text box sets main clock to user choice
-        
+    update: function(timeStr){//called on update to any text box sets main clock to user choice
+        this.time = moment(timeStr);
 
     },
     initialize: function(){
@@ -79,12 +79,23 @@ moment.fn.zoneName = function () {
 };
 
 //TESTS
+function myHandler(){// TEST VERSION changing ET works!!! CT changes.  Need to make universal
+    console.log('onchange fired', document.getElementById('ET').value);
+    mainClock.update(document.getElementById('ET').value);
+    renderChicagoClock(moment.tz(mainClock.time, "America/Chicago").format(),
+moment.tz(mainClock.time, "America/Chicago").format('z'),
+moment.tz(mainClock.time, "America/Chicago").format('zz'),
+moment.tz(mainClock.time, "America/Chicago").format('Z'));
 
+}
 var c = moment.tz(Date.now(), "America/New_York");
 var d = moment.tz(Date.now(), "America/Chicago");
 console.log('momentTest: ', c.format(), d.format());
 
 mainClock.initialize();
+var newtesttime = document.getElementById('CT').value;
+console.log('ntt ', newtesttime);
+//mainClock.update(newtesttime);
 renderNYClock(moment.tz(mainClock.time, "America/New_York").format(),
 moment.tz(mainClock.time, "America/New_York").format('z'),
 moment.tz(mainClock.time, "America/New_York").format('zz'),
