@@ -17,11 +17,12 @@ Add toggle between 12 and 24 hour clocks.  Local Storage can remember each choic
 Add current date and user defined date.  
 Update display to reflect date is or is not during daylight savings time  
 Add all Time Zones in US?  US Territories? entire World?  Space?  
-gets complicated - https://www.timeanddate.com/services/api/time-api.html has an API with free trail, $400/yr after 3 months  
+gets complicated - https://www.timeanddate.com/services/api/time-api.html has an API with free trail, $400/yr after 3 months.  Could generate clocks from the js file, refactor renderClock functions to one function that loops over list of clocks - goal:  make it easy to add more time zones 
 
 12 US Time Zone areas in use now, more after daylight savings ends, still more if Puerto Rice, Guam etc - begin with main four for now  
 
-Other Features to consider:
+Other Future Features to consider:
 
 Description on mouseover of each time zone, especially UTC.
+
 

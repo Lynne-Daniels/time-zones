@@ -39,6 +39,15 @@ function initializeClocks(clock, newTime){
 function validateTime(newTime){
     //make user enter a valid time
 }
+
+zonesDisplayed= [//maps ids to Momentjs names ADD ANY NEW CLOCKS HERE
+    {ET: 'America/New_York'},
+    {CT: 'America/Chicago'},
+    {MT: 'America/Denver'},
+    {PT: 'America/Los_Angeles'}
+   ];
+
+
 function renderNYClock(timeStr, abbr, zone, offset){
     document.getElementById('ET').value = timeStr;
     document.getElementById('america-new-york-abbr').innerText = abbr;
@@ -50,6 +59,18 @@ function renderChicagoClock(timeStr, abbr, zone, offset){
     document.getElementById('america-chicago-abbr').innerText = abbr;
     document.getElementById('america-chicago-zone').innerText = zone;
     document.getElementById('america-chicago-offset').innerText = offset;
+}
+function renderDenverClock(timeStr, abbr, zone, offset){
+    document.getElementById('MT').value = timeStr;
+    document.getElementById('america-denver-abbr').innerText = abbr;
+    document.getElementById('america-denver-zone').innerText = zone;
+    document.getElementById('america-denver-offset').innerText = offset;
+}
+function renderLosAngelesClock(timeStr, abbr, zone, offset){
+    document.getElementById('PT').value = timeStr;
+    document.getElementById('america-los-angeles-abbr').innerText = abbr;
+    document.getElementById('america-los-angeles-zone').innerText = zone;
+    document.getElementById('america-los-angeles-offset').innerText = offset;
 }
 function initializeMainClock(time, utcoff){
     var currentTime = new Date();
@@ -86,38 +107,41 @@ moment.fn.zoneName = function () {
    onpaste    = "this.onchange();"
    oninput    = "this.onchange();"
 />*/
-function myHandler(zone){// TEST VERSION changing ET works!!! CT changes.  Need to make universal
-    
+
+
+function myHandler(zone){
+
     console.log('onchange fired', zone, document.getElementById('ET').value);
     mainClock.update(document.getElementById(zone).value);
-    renderChicagoClock(moment.tz(mainClock.time, "America/Chicago").format(),
-        moment.tz(mainClock.time, "America/Chicago").format('z'),
-        moment.tz(mainClock.time, "America/Chicago").format('zz'),
-        moment.tz(mainClock.time, "America/Chicago").format('Z'));
-    renderNYClock(moment.tz(mainClock.time, "America/New_York").format(),
-        moment.tz(mainClock.time, "America/New_York").format('z'),
-        moment.tz(mainClock.time, "America/New_York").format('zz'),
-        moment.tz(mainClock.time, "America/New_York").format('Z'));
-
+    renderAllClocks();
 }
 var c = moment.tz(Date.now(), "America/New_York");
 var d = moment.tz(Date.now(), "America/Chicago");
 console.log('momentTest: ', c.format(), d.format());
 
 mainClock.initialize();
-var newtesttime = document.getElementById('CT').value;
-console.log('ntt ', newtesttime);
-//mainClock.update(newtesttime);
-renderNYClock(moment.tz(mainClock.time, "America/New_York").format(),
-moment.tz(mainClock.time, "America/New_York").format('z'),
-moment.tz(mainClock.time, "America/New_York").format('zz'),
-moment.tz(mainClock.time, "America/New_York").format('Z'));
+function renderAllClocks(){
+    renderNYClock(moment.tz(mainClock.time, "America/New_York").format(),
+    moment.tz(mainClock.time, "America/New_York").format('z'),
+    moment.tz(mainClock.time, "America/New_York").format('zz'),
+    moment.tz(mainClock.time, "America/New_York").format('Z'));
 
-renderChicagoClock(moment.tz(mainClock.time, "America/Chicago").format(),
-moment.tz(mainClock.time, "America/Chicago").format('z'),
-moment.tz(mainClock.time, "America/Chicago").format('zz'),
-moment.tz(mainClock.time, "America/Chicago").format('Z'));
+    renderChicagoClock(moment.tz(mainClock.time, "America/Chicago").format(),
+    moment.tz(mainClock.time, "America/Chicago").format('z'),
+    moment.tz(mainClock.time, "America/Chicago").format('zz'),
+    moment.tz(mainClock.time, "America/Chicago").format('Z'));
 
+    renderDenverClock(moment.tz(mainClock.time, "America/Denver").format(),
+    moment.tz(mainClock.time, "America/Denver").format('z'),
+    moment.tz(mainClock.time, "America/Denver").format('zz'),
+    moment.tz(mainClock.time, "America/Denver").format('Z'));
+
+    renderLosAngelesClock(moment.tz(mainClock.time, 'America/Los_Angeles').format(),
+    moment.tz(mainClock.time, 'America/Los_Angeles').format('z'),
+    moment.tz(mainClock.time, 'America/Los_Angeles').format('zz'),
+    moment.tz(mainClock.time, 'America/Los_Angeles').format('Z'));
+}
+renderAllClocks();
 /*
 var Test = {};
 Test.assertEquals = function(actual, expected, testName){
