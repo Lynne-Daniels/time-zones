@@ -14,7 +14,7 @@
         <link href="main.css" rel="stylesheet">
 
         <div class = "time-zone" id = "newyork" >
-            <div class="toggle">hide</div>
+            <div id="et-button" onclick="showHide(this.id);" class="toggle">hide</div>
             <h1 class="zone-name" id ="america-new-york-abbr" >placeholder</h1>
             <h3>
                 <span id="america-new-york-zone">placeholder</span>
@@ -26,7 +26,7 @@
         </div>
 
         <div class = "time-zone" id = "chicago">
-            <div class="toggle">hide</div>
+            <div id="ct-button" class="toggle">hide</div>
             <h1 class="zone-name" id ="america-chicago-abbr" >placeholder</h1>
             <h3>
                 <span id="america-chicago-zone">placeholder</span>
@@ -38,7 +38,7 @@
         </div>
 
         <div class = "time-zone" id = "denver">
-            <div class="toggle">hide</div>
+            <div id="mt-button" class="toggle">hide</div>
             <h1 class="zone-name" id ="america-denver-abbr" >placeholder</h1>
             <h3>
                 <span id="america-denver-zone">placeholder</span>
@@ -50,7 +50,7 @@
         </div>
 
         <div class = "time-zone" id = "los-angeles">
-            <div class="toggle">hide</div>
+            <div id="pt-button" class="toggle">hide</div>
             <h1 class="zone-name" id ="america-los-angeles-abbr" >placeholder</h1>
             <h3>
                 <span id="america-los-angeles-zone">placeholder</span>
@@ -60,8 +60,6 @@
                     <input  class="time" id="PT" type="text" name="time" value="00:00" onchange="myHandler(this.id);">
             </div>          
         </div>
-
-
 
          <script src="app.js"></script>
          <script src="moment.js"></script>

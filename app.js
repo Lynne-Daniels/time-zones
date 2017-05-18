@@ -118,7 +118,16 @@ function myHandler(zone){
     renderAllClocks();
 }
 function showHide(buttonID){
-    
+    console.log('CLICKED');
+    var section = document.getElementById("et-button").parentElement;
+    if (section.className === "time-zone"){
+        section.className = 'shrinky-dink';
+    }else{
+        section.className = 'time-zone';
+    }
+    console.log(section.className);
+    //section.className = 'shrinky-dink';
+    console.log(document.getElementById("et-button").parentElement.className);
 }
 mainClock.initialize();
 renderAllClocks();
