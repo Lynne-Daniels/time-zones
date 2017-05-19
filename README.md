@@ -3,7 +3,7 @@ Time Zone Conversion Utility
 
 Phase 1
 
-Create display of 4 main USA time zones and UTC.
+Create display of 4 main USA time zones.
 Onload, populate all zones with current time in that zone.  
 Synchronize the time in all these zones - make update function  
 Allow user to change the time in any zone  
@@ -13,16 +13,11 @@ Use local storage to remember user's hide/show (collapse/expand) preferences
 
 
 Phase 2 (optional) 
-Add toggle between 12 and 24 hour clocks.  Local Storage can remember each choice.
-Add current date and user defined date.  
-Update display to reflect date is or is not during daylight savings time  
+Add UTC time zone.
+Validate user input - replace textbox with dropdownmenus.  (See if they can appear seamless until click/hover/touch).  Remember to disallow < 2012 or > 2022, or use larger momentjstz data file.
+Add toggle between 12 and 24 hour clocks.  Or show both? Local Storage can remember each choice.
 Add all Time Zones in US?  US Territories? entire World?  Space?  
-gets complicated - https://www.timeanddate.com/services/api/time-api.html has an API with free trail, $400/yr after 3 months.  Could generate clocks from the js file, refactor renderClock functions to one function that loops over list of clocks - goal:  make it easy to add more time zones 
-
 12 US Time Zone areas in use now, more after daylight savings ends, still more if Puerto Rice, Guam etc - begin with main four for now  
-
-Other Future Features to consider:
-
-Description on mouseover of each time zone, especially UTC.
+Description popup on mouseover of each time zone.
 
 

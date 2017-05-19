@@ -1,4 +1,4 @@
-/*Below code is from http://momentjs.com/timezone/docs/ Moment.js also provides a hook for the 
+/*Below small section of code is from http://momentjs.com/timezone/docs/ -- Moment.js also provides a hook for the 
 long form time zone name. Because these strings are generally localized, Moment Timezone does 
 not provide any long names for zones.
 To provide long form names, you can override moment.fn.zoneName and use the zz token.*/
@@ -18,33 +18,21 @@ moment.fn.zoneName = function () {
     return abbrs[abbr] || abbr;
 };
 /*End of  code from http://momentjs.com/timezone/docs/ */
+
+
+
 var mainClock = {
     time: '',
     update: function(timeStr){//called on update to any text box sets main clock to user choice
         this.time = moment(timeStr);
-        console.log('update', this.time);
-
     },
     initialize: function(){
         this.time = Date.now();
-        console.log('initialize', this.time);
     }
-
 };
-function Clock(name, utcOffset){
-    this.name = name;
-    this.utcOffset = utcOffset;
-}
-var timeZones = {
-    EDT: -4,
-    CDT: -5,
-    MDT: -6,
-    PDT: -7
-};
-
 
 function validateTime(newTime){
-    //make user enter a valid time
+    //TODO make user enter a valid time
 }
 
 
@@ -87,39 +75,38 @@ function renderLosAngelesClock(timeStr, abbr, zone, offset){
 
 
 function renderAllClocks(){
-    renderNYClock(moment.tz(mainClock.time, "America/New_York").format(),
+    renderNYClock(moment.tz(mainClock.time, "America/New_York").format('lll'),
     moment.tz(mainClock.time, "America/New_York").format('z'),
     moment.tz(mainClock.time, "America/New_York").format('zz'),
     moment.tz(mainClock.time, "America/New_York").format('Z'));
 
-    renderChicagoClock(moment.tz(mainClock.time, "America/Chicago").format(),
+    renderChicagoClock(moment.tz(mainClock.time, "America/Chicago").format('lll'),
     moment.tz(mainClock.time, "America/Chicago").format('z'),
     moment.tz(mainClock.time, "America/Chicago").format('zz'),
     moment.tz(mainClock.time, "America/Chicago").format('Z'));
 
-    renderDenverClock(moment.tz(mainClock.time, "America/Denver").format(),
+    renderDenverClock(moment.tz(mainClock.time, "America/Denver").format('lll'),
     moment.tz(mainClock.time, "America/Denver").format('z'),
     moment.tz(mainClock.time, "America/Denver").format('zz'),
     moment.tz(mainClock.time, "America/Denver").format('Z'));
 
-    renderLosAngelesClock(moment.tz(mainClock.time, 'America/Los_Angeles').format(),
+    renderLosAngelesClock(moment.tz(mainClock.time, 'America/Los_Angeles').format('lll'),
     moment.tz(mainClock.time, 'America/Los_Angeles').format('z'),
     moment.tz(mainClock.time, 'America/Los_Angeles').format('zz'),
     moment.tz(mainClock.time, 'America/Los_Angeles').format('Z'));
 }
 
+/*
 
+For use in myHandler when improving the user input later
 
-
-//TESTS
-/*<input
+<input
    type       = "text" 
    onchange   = "myHandler();"
    onkeypress = "this.onchange();"
    onpaste    = "this.onchange();"
    oninput    = "this.onchange();"
 />*/
-
 
 function myHandler(zone){
 

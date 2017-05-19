@@ -1,3 +1,17 @@
+header {
+    border : 1px solid gray;
+    padding: 2em;
+    max-width: 320px;
+    background: whitesmoke;
+    border-radius: 10%;
+    padding: .5em;
+    margin: auto;
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 1.17em;
+
+}
+
 body{
     background-color: #cc3524;
     margin: 0px;
