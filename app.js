@@ -53,24 +53,36 @@ function renderNYClock(timeStr, abbr, zone, offset){
     document.getElementById('america-new-york-abbr').innerText = abbr;
     document.getElementById('america-new-york-zone').innerText = zone;
     document.getElementById('america-new-york-offset').innerText = offset;
+    if (localStorage.getItem('et-button') === 'hide'){
+       showHide('et-button');
+    }
 }
 function renderChicagoClock(timeStr, abbr, zone, offset){
     document.getElementById('CT').value = timeStr;
     document.getElementById('america-chicago-abbr').innerText = abbr;
     document.getElementById('america-chicago-zone').innerText = zone;
     document.getElementById('america-chicago-offset').innerText = offset;
+        if (localStorage.getItem('ct-button') === 'hide'){
+       showHide('ct-button');
+    }
 }
 function renderDenverClock(timeStr, abbr, zone, offset){
     document.getElementById('MT').value = timeStr;
     document.getElementById('america-denver-abbr').innerText = abbr;
     document.getElementById('america-denver-zone').innerText = zone;
     document.getElementById('america-denver-offset').innerText = offset;
+        if (localStorage.getItem('mt-button') === 'hide'){
+       showHide('mt-button');
+    }
 }
 function renderLosAngelesClock(timeStr, abbr, zone, offset){
     document.getElementById('PT').value = timeStr;
     document.getElementById('america-los-angeles-abbr').innerText = abbr;
     document.getElementById('america-los-angeles-zone').innerText = zone;
     document.getElementById('america-los-angeles-offset').innerText = offset;
+        if (localStorage.getItem('pt-button') === 'hide'){
+       showHide('pt-button');
+    }
 }
 
 
@@ -97,6 +109,8 @@ function renderAllClocks(){
 }
 
 
+
+
 //TESTS
 /*<input
    type       = "text" 
@@ -119,11 +133,16 @@ function myHandler(zone){
 }
 function showHide(buttonID){
     console.log('CLICKED');
-    var section = document.getElementById("et-button").parentElement;
+    var section = document.getElementById(buttonID).parentElement;
     if (section.className === "time-zone"){
         section.className = 'shrinky-dink';
+        document.getElementById(buttonID).innerHTML = 'show';
+        localStorage.setItem(buttonID, 'hide');
+        console.log('buttonID.text is: ', document.getElementById(buttonID).innerHTML);
     }else{
         section.className = 'time-zone';
+        document.getElementById(buttonID).innerHTML = 'hide';
+        localStorage.setItem(buttonID, 'show');
     }
     console.log(section.className);
     //section.className = 'shrinky-dink';
